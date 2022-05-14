@@ -3,12 +3,6 @@ generator client {
   previewFeatures = ["referentialIntegrity"]
 }
 
-datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
-  referentialIntegrity = "prisma"
-}
-
 model guestbook {
   id         BigInt   @id @default(autoincrement())
   email      String   @db.VarChar(256)
