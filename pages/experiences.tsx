@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Container from 'components/Container';
 import ExperiencePost from 'components/ExperiencePost';
 import { pick } from 'lib/utils';
-import { allBlogs } from 'contentlayer/generated';
 
 export default function Blog({
   posts
