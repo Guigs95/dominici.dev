@@ -41,12 +41,10 @@ jobs:
       - name: Build Node assets
         env:
           CI: true
-          SENDGRID_API_KEY: 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
           SITE_URL: ${{ steps.project.outputs.site-url }}
         run: |
-          npm install -g serve
-          npm install react-scripts --save
-          CI= npm run build
+          yarn install
+          yarn dev
 
       - name: Deploy to IONOS
         if: ${{ steps.project.outputs.deployment-enabled == 'true' }}
@@ -56,5 +54,5 @@ jobs:
           branch-id: ${{ steps.project.outputs.branch-id }}
           service-host: api-eu.ionos.space
           api-key: ${{ secrets.IONOS_API_KEY }}
-          dist-folder: build
+          dist-folder: public
           runtime-placeholder-files: ${{ steps.template.outputs.runtime-placeholder-files }}
